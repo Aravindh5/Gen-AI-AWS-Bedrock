@@ -1,6 +1,6 @@
-import os
-import sys
-import json
+# import os
+# import sys
+# import json
 import boto3
 import streamlit as st
 
@@ -39,7 +39,7 @@ bedrock_embeddings = BedrockEmbeddings(model_id=model_id, client=bedrock_client)
 # STEP 1 - Creating the Data Ingestion Model.
 def data_ingestion():
 
-    # Here, we are reading all the PDFs from the "data " folder.
+    # Here, we are reading all the PDFs from the "data" folder.
     loader = PyPDFDirectoryLoader('data')
     documents = loader.load()
 
@@ -81,7 +81,7 @@ def get_claude_llm():
 
 def get_llama2_llm():
 
-    llm2 = Bedrock(model_id="", client=bedrock_client,
+    llm2 = Bedrock(model_id="ai21.j2-mid-v1", client=bedrock_client,
                    model_kwargs={'max_gen_length': 512})
 
     return llm2
